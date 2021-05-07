@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        vector<int> res;
+        int l=nums.size();
+        for(auto n:nums){
+            int x = (n - 1) % l;
+            nums[x]+=l;
+        }
+        for(int i=0;i<l;i++){
+            if(nums[i]<=l) res.push_back(i+1);
+        }
+        return res;
+    }
+};
